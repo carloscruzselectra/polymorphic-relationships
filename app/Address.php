@@ -4,9 +4,9 @@ namespace App;
 
 class Address extends BaseModel
 {
-    public function user()
+    public function addressable()
     {
-        return $this->belongsTo(User::class);
+        return $this->morphTo();
     }
 
     public function city()

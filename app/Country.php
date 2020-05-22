@@ -28,6 +28,9 @@ class Country extends BaseModel
 
     public function comments(): HasManyDeep
     {
-        return $this->hasManyDeepFromRelations($this->posts(), (new Post())->comments());
+        return $this->hasManyDeepFromRelations(
+            $this->posts(),
+            (new Post())->comments()
+        );
     }
 }

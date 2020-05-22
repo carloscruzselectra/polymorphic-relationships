@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use Znck\Eloquent\Relations\BelongsToThrough;
@@ -36,10 +37,15 @@ class UserTest extends TestCase
         $this->assertInstanceOf(Company::class, $user->company);
         $this->assertInstanceOf(BelongsTo::class, $user->company());
 
-        $user->address()->save(factory(Address::class)->make());
+        $user->address()->create([
+            'street' => '124 st.',
+            'street_number' => 1,
+            'city_id' => factory(City::class)->create()->id,
+            'zip' => '28999'
+        ]);
 
         $this->assertInstanceOf(Address::class, $user->address);
-        $this->assertInstanceOf(HasOne::class, $user->address());
+        $this->assertInstanceOf(MorphOne::class, $user->address());
 
         $this->assertInstanceOf(Collection::class, $user->posts);
         $this->assertInstanceOf(HasMany::class, $user->posts());

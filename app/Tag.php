@@ -6,8 +6,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Tag extends BaseModel
 {
-    public function posts(): BelongsToMany
+    public function posts()
     {
-        return $this->belongsToMany(Post::class);
+        return $this->morphedByMany(Post::class, 'taggable');
+    }
+
+    public function companies(): BelongsToMany
+    {
+        return $this->morphedByMany(Company::class, 'taggable');
     }
 }
