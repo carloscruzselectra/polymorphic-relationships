@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Znck\Eloquent\Traits\BelongsToThrough;
+use Znck\Eloquent\Relations\BelongsToThrough as BelongsToThroughRelationship;
 
 class User extends Authenticatable
 {
+    use BelongsToThrough;
     use Notifiable;
 
     protected $fillable = [
@@ -28,6 +31,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function country(): BelongsToThroughRelationship
+    {
+        return $this->belongsToThrough(Country::class, City::class);
+    }
 
     public function company(): BelongsTo
     {

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Staudenmeir\EloquentHasManyDeep\HasManyDeep;
 use Tests\TestCase;
 
 class CountryTest extends TestCase
@@ -26,5 +27,11 @@ class CountryTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $country->users);
         $this->assertInstanceOf(HasManyThrough::class, $country->users());
+
+        $this->assertInstanceOf(Collection::class, $country->posts);
+        $this->assertInstanceOf(HasManyDeep::class, $country->posts());
+
+        $this->assertInstanceOf(Collection::class, $country->comments);
+        $this->assertInstanceOf(HasManyDeep::class, $country->comments());
     }
 }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factory;
 
 $factory->define(Country::class, function (Faker $faker) {
     return [
-        'code' => $faker->countryCode,
+        'code' => $faker->unique()->countryCode,
         'name' => $faker->country,
     ];
 });

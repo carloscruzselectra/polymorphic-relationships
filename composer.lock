@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7a4f25f0656b422c9158a24f8493e86",
+    "content-hash": "1e3559bf1886ebb6c79fc26f9ada27d9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1963,6 +1963,93 @@
                 }
             ],
             "time": "2020-03-29T20:13:32+00:00"
+        },
+        {
+            "name": "staudenmeir/belongs-to-through",
+            "version": "v2.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/staudenmeir/belongs-to-through.git",
+                "reference": "23be043a4885f696a0e5eb24da7221947e480cb5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/staudenmeir/belongs-to-through/zipball/23be043a4885f696a0e5eb24da7221947e480cb5",
+                "reference": "23be043a4885f696a0e5eb24da7221947e480cb5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^7.0",
+                "php": "^7.2.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Znck\\Eloquent\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rahul Kadyan",
+                    "email": "hi@znck.me"
+                },
+                {
+                    "name": "Jonas Staudenmeir",
+                    "email": "mail@jonas-staudenmeir.de"
+                }
+            ],
+            "description": "Laravel Eloquent BelongsToThrough relationships",
+            "time": "2020-01-31T11:29:47+00:00"
+        },
+        {
+            "name": "staudenmeir/eloquent-has-many-deep",
+            "version": "v1.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/staudenmeir/eloquent-has-many-deep.git",
+                "reference": "7417572873c9fb4fa84e894ebbf324629cbc63c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/staudenmeir/eloquent-has-many-deep/zipball/7417572873c9fb4fa84e894ebbf324629cbc63c0",
+                "reference": "7417572873c9fb4fa84e894ebbf324629cbc63c0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^7.0",
+                "php": "^7.2.5"
+            },
+            "require-dev": {
+                "illuminate/pagination": "^7.0",
+                "laravel/homestead": "^10.0",
+                "phpunit/phpunit": "^8.5",
+                "staudenmeir/eloquent-eager-limit": "^1.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Staudenmeir\\EloquentHasManyDeep\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonas Staudenmeir",
+                    "email": "mail@jonas-staudenmeir.de"
+                }
+            ],
+            "description": "Laravel Eloquent HasManyThrough relationships with unlimited levels",
+            "time": "2020-01-31T12:37:57+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
