@@ -1,0 +1,45 @@
+<?php
+
+namespace Tests\Feature;
+
+use App\Address;
+use App\City;
+use App\Company;
+use App\User;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+
+class UserTest extends TestCase
+{
+    use RefreshDatabase;
+
+    /** @test */
+    public function a_user_has_relationships()
+    {
+        /** @var User $user */
+        $user = factory(User::class)->create();
+
+        $this->assertInstanceOf(User::class, $user);
+
+        $this->assertInstanceOf(City::class, $user->city);
+        $this->assertInstanceOf(BelongsTo::class, $user->city());
+
+        $this->assertInstanceOf(Company::class, $user->company);
+        $this->assertInstanceOf(BelongsTo::class, $user->company());
+
+        $user->address()->save(factory(Address::class)->make());
+
+        $this->assertInstanceOf(Address::class, $user->address);
+        $this->assertInstanceOf(HasOne::class, $user->address());
+
+        $this->assertInstanceOf(Collection::class, $user->posts);
+        $this->assertInstanceOf(HasMany::class, $user->posts());
+
+        $this->assertInstanceOf(Collection::class, $user->comments);
+        $this->assertInstanceOf(HasMany::class, $user->comments());
+    }
+}
